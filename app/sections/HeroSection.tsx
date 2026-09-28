@@ -2,16 +2,19 @@ import CTAButton from "@/components/CTAButton";
 
 export default function HeroSection() {
   return (
-    <section className="relative bg-[url('/hero-bg.png')] bg-cover bg-center text-white py-24">
-      <div className="absolute inset-0 bg-black/40"></div>
+    <section 
+      className="relative bg-cover bg-center text-slate-900 py-32 md:py-44"
+      style={{ backgroundImage: "url('/images/backgrounds/bg1.png')" }}
+    >
+      {/* ※明るい画像のため、黒いオーバーレイ（幕）は外しています */}
 
-      <div className="relative max-w-3xl mx-auto px-6 text-center">
-        <h1 className="text-4xl md:text-6xl font-bold mb-6">
+      <div className="relative max-w-4xl mx-auto px-6 text-center">
+        <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight">
           顧客情報を、チームの力に変える。
         </h1>
-
-        <p className="text-lg md:text-xl mb-8">
-          営業・サポート・マーケティングを一元管理。<br />
+        
+        <p className="text-lg md:text-xl mb-8 text-slate-700">
+          営業・サポート・マーケティングを一元管理。 <br />
           業務効率と顧客満足を同時に高めるクラウドCRM。
         </p>
 
