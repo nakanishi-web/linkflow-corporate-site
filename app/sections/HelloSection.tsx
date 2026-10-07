@@ -6,7 +6,6 @@ export default function HeroSection() {
       className="relative bg-cover bg-center text-slate-900 py-32 md:py-44"
       style={{ backgroundImage: "url('/images/backgrounds/bg1.png')" }}
     >
-      {/* ※明るい画像のため、黒いオーバーレイ（幕）は外しています */}
 
       <div className="relative max-w-4xl mx-auto px-6 text-center">
         <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight">
