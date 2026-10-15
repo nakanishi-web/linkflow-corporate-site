@@ -1,6 +1,23 @@
+'use client';
+
 import React from 'react';
 
 export default function PricingSection() {
+  const handlePlanSelect = (
+    event: React.MouseEvent<HTMLAnchorElement>,
+    plan: 'starter' | 'standard' | 'professional',
+  ) => {
+    event.preventDefault();
+
+    const url = new URL(window.location.href);
+    url.searchParams.delete('source');
+    url.searchParams.set('plan', plan);
+    url.hash = 'contact';
+    window.history.pushState(null, '', `${url.pathname}${url.search}${url.hash}`);
+    window.dispatchEvent(new Event('linkflow:plan-selected'));
+    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <section className="py-24 bg-slate-50 text-slate-900">
       <div className="max-w-7xl mx-auto px-6">
@@ -37,9 +54,13 @@ export default function PricingSection() {
               </ul>
             </div>
             <div className="mt-8">
-              <button className="w-full py-3 px-4 rounded-xl border border-slate-300 font-bold text-slate-700 hover:bg-slate-50 transition-colors">
+              <a
+                href="?plan=starter#contact"
+                onClick={(event) => handlePlanSelect(event, 'starter')}
+                className="block w-full text-center py-3 px-4 rounded-xl border border-slate-300 font-bold text-slate-700 hover:bg-slate-50 transition-colors"
+              >
                 無料で試してみる
-              </button>
+              </a>
             </div>
           </div>
 
@@ -63,9 +84,13 @@ export default function PricingSection() {
               </ul>
             </div>
             <div className="mt-8">
-              <button className="w-full py-3 px-4 rounded-xl bg-sky-500 text-white font-bold hover:bg-sky-600 transition-colors shadow-lg shadow-sky-500/30">
+              <a
+                href="?plan=standard#contact"
+                onClick={(event) => handlePlanSelect(event, 'standard')}
+                className="block w-full text-center py-3 px-4 rounded-xl bg-sky-500 text-white font-bold hover:bg-sky-600 transition-colors shadow-lg shadow-sky-500/30"
+              >
                 無料で試してみる
-              </button>
+              </a>
             </div>
           </div>
 
@@ -86,9 +111,13 @@ export default function PricingSection() {
               </ul>
             </div>
             <div className="mt-8">
-              <button className="w-full py-3 px-4 rounded-xl border border-slate-300 font-bold text-slate-700 hover:bg-slate-50 transition-colors">
+              <a
+                href="?plan=professional#contact"
+                onClick={(event) => handlePlanSelect(event, 'professional')}
+                className="block w-full text-center py-3 px-4 rounded-xl border border-slate-300 font-bold text-slate-700 hover:bg-slate-50 transition-colors"
+              >
                 お問い合わせ
-              </button>
+              </a>
             </div>
           </div>
 
