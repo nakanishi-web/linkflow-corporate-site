@@ -1,9 +1,55 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 export default function ContactSection() {
   const [submitted, setSubmitted] = useState(false);
+  const [inquiryType, setInquiryType] = useState('');
+  const [details, setDetails] = useState('');
+
+  useEffect(() => {
+    const planInquiryDefaults: Record<string, { type: string; details: string }> = {
+      starter: {
+        type: 'demo',
+        details: 'スタータープランの無料トライアル・導入のご相談を承ります。',
+      },
+      standard: {
+        type: 'demo',
+        details: 'スタンダードプランの無料トライアル・導入のご相談を承ります。',
+      },
+      professional: {
+        type: 'estimate',
+        details: 'プロフェッショナルプランの個別お見積り・導入支援についてご相談を承ります。',
+      },
+    };
+
+    const syncPlanFromUrl = () => {
+      const searchParams = new URLSearchParams(window.location.search);
+
+      if (searchParams.get('source') === 'general') {
+        setInquiryType('');
+        setDetails('');
+        return;
+      }
+
+      const plan = searchParams.get('plan');
+      const defaults = plan ? planInquiryDefaults[plan] : undefined;
+
+      if (!defaults) return;
+
+      setInquiryType(defaults.type);
+      setDetails(defaults.details);
+    };
+
+    syncPlanFromUrl();
+    window.addEventListener('linkflow:plan-selected', syncPlanFromUrl);
+    window.addEventListener('popstate', syncPlanFromUrl);
+
+    return () => {
+      window.removeEventListener('linkflow:plan-selected', syncPlanFromUrl);
+      window.removeEventListener('popstate', syncPlanFromUrl);
+    };
+  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -81,9 +127,12 @@ export default function ContactSection() {
                 </label>
                 <select
                   required
+                  value={inquiryType}
+                  onChange={(e) => setInquiryType(e.target.value)}
                   className="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 outline-none transition text-sm text-slate-700 bg-white"
                 >
                   <option value="">選択してください</option>
+                  <option value="plan">料金プランについて</option>
                   <option value="estimate">導入検討・お見積りのご相談</option>
                   <option value="demo">無料デモ・資料請求</option>
                   <option value="spec">機能・仕様に関する質問</option>
@@ -97,6 +146,8 @@ export default function ContactSection() {
                 </label>
                 <textarea
                   rows={4}
+                  value={details}
+                  onChange={(e) => setDetails(e.target.value)}
                   placeholder="ご検討中のご利用人数や、確認したい機能などをご記入ください。"
                   className="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:ring-2 focus:ring-sky-500 focus:border-sky-500 outline-none transition text-sm"
                 ></textarea>
