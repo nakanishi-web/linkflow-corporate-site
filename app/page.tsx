@@ -7,6 +7,7 @@ import DashboardSection from '@/app/sections/DashboardSection';
 import TestimonialsSection from '@/app/sections/TestimonialsSection'; 
 import StepsSection from '@/app/sections/StepsSection';
 import PricingSection from '@/app/sections/PricingSection';
+import FaqSection from '@/app/sections/FaqSection';
 import ContactSection from '@/app/sections/ContactSection'; 
 
 export default function Home() {
@@ -21,6 +22,7 @@ export default function Home() {
       <TestimonialsSection /> 
       <StepsSection />
       <PricingSection />
+      <FaqSection />
       <ContactSection />
     </main>
   );
