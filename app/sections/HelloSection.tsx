@@ -52,7 +52,7 @@ export default function HelloSection() {
           <div className="lg:col-span-6 flex justify-center">
             <div className="w-full max-w-xl relative p-2 sm:p-4">
               
-              {/* イラスト裏のアクセント背景カード（ここを鮮やかなブルーパネルに変更します） */}
+              {/* イラスト裏のアクセント背景カード */}
               <div className="absolute inset-0 bg-gradient-to-tr from-sky-600/90 to-blue-700 rounded-3xl border border-sky-500 shadow-2xl shadow-sky-900/10 -rotate-2 transform scale-105"></div>
               <div className="absolute inset-0 bg-white/50 backdrop-blur-sm rounded-3xl border border-white/50 rotate-1 transform scale-100"></div>
 
