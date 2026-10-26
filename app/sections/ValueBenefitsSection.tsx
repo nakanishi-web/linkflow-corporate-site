@@ -1,8 +1,24 @@
 import React from 'react';
 import { MousePointerClick, LayoutGrid, Coins, Check } from 'lucide-react';
 
+type BenefitBase = {
+  number: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  borderAccent: string;
+  tagColor: string;
+  icon: React.ReactNode;
+  checkpoints: string[];
+};
+
+type Benefit =
+  | (BenefitBase & { type: 'ui'; integrations?: never })
+  | (BenefitBase & { type: 'integrations'; integrations: string[] })
+  | (BenefitBase & { type: 'cost'; integrations?: never });
+
 export default function ValueBenefitsSection() {
-  const benefits = [
+  const benefits: Benefit[] = [
     {
       number: '01',
       title: '誰でも直感的に使えるUI設計',
