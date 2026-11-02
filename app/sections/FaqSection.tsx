@@ -35,7 +35,6 @@ const faqData: FaqItem[] = [
 ];
 
 export default function FaqSection() {
-  // 開いているFAQのインデックスを保持（初期状態は最初の1つを開いておく）
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   const toggleFaq = (index: number) => {
@@ -43,18 +42,18 @@ export default function FaqSection() {
   };
 
   return (
-    <section className="py-24 bg-slate-50 text-slate-900">
-      <div className="max-w-4xl mx-auto px-6">
+    <section className="py-24 sm:py-28 bg-slate-50 text-slate-900 border-b border-slate-200/80">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* セクションの見出し（水色カプセル廃止・テキスト見出し統一） */}
-        <div className="text-center mb-16">
-          <span className="text-sky-600 font-bold text-sm tracking-wider uppercase">
+        {/* セクションの見出し（H2見出し統一・強調） */}
+        <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
+          <span className="text-sky-600 font-extrabold text-xs sm:text-sm tracking-widest uppercase">
             FAQ
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold mt-2">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 mt-3 mb-5 tracking-tight leading-tight">
             よくあるご質問
           </h2>
-          <p className="text-slate-600 mt-4 max-w-xl mx-auto">
+          <p className="text-base sm:text-lg text-slate-600 font-medium leading-relaxed max-w-xl mx-auto">
             ご検討中の企業様から寄せられる代表的なご質問にお答えします。
           </p>
         </div>
@@ -66,7 +65,7 @@ export default function FaqSection() {
             return (
               <div
                 key={index}
-                className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm transition-all duration-200 hover:border-slate-300"
+                className="bg-white rounded-2xl border border-slate-200/90 overflow-hidden shadow-sm transition-all duration-200 hover:border-slate-300"
               >
                 <button
                   type="button"
@@ -74,8 +73,8 @@ export default function FaqSection() {
                   className="w-full py-5 px-6 md:px-8 text-left flex justify-between items-center gap-4 focus:outline-none"
                   aria-expanded={isOpen}
                 >
-                  <span className="flex items-center gap-3 font-bold text-slate-800 text-base md:text-lg">
-                    <span className="text-sky-600 font-extrabold text-xl">Q.</span>
+                  <span className="flex items-center gap-3 font-bold text-slate-900 text-base md:text-lg leading-snug">
+                    <span className="text-sky-600 font-black text-xl">Q.</span>
                     {item.question}
                   </span>
                   
@@ -94,7 +93,7 @@ export default function FaqSection() {
                       <path
                         strokeLinecap="round"
                         strokeLinejoin="round"
-                        strokeWidth={2}
+                        strokeWidth={2.5}
                         d="M19 9l-7 7-7-7"
                       />
                     </svg>
@@ -103,8 +102,8 @@ export default function FaqSection() {
 
                 {/* 回答（開閉表示） */}
                 {isOpen && (
-                  <div className="px-6 pb-6 md:px-8 text-slate-600 text-sm md:text-base border-t border-slate-100 pt-4 animate-fadeIn">
-                    <p className="leading-relaxed">{item.answer}</p>
+                  <div className="px-6 pb-6 md:px-8 text-slate-600 text-sm md:text-base border-t border-slate-100 pt-4">
+                    <p className="leading-relaxed font-medium">{item.answer}</p>
                   </div>
                 )}
               </div>
