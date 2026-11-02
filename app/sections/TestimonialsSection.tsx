@@ -39,18 +39,18 @@ export default function TestimonialsSection() {
   ];
 
   return (
-    <section className="py-24 bg-sky-50/70 text-slate-900 overflow-hidden relative">
+    <section className="py-24 sm:py-28 bg-sky-50/70 text-slate-900 overflow-hidden relative border-b border-slate-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* セクション見出し */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-sky-600 font-bold text-sm tracking-wider uppercase">
+        <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
+          <span className="text-sky-600 font-extrabold text-xs sm:text-sm tracking-widest uppercase">
             CASE STUDY
           </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-2">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 mt-3 mb-5 tracking-tight leading-tight">
             導入事例・活用成果
           </h2>
-          <p className="mt-4 text-sm sm:text-base text-slate-600">
+          <p className="text-base sm:text-lg text-slate-600 font-medium leading-relaxed max-w-2xl mx-auto">
             さまざまな業界の中小企業様が、LinkFlowで業務効率化と成果創出を実現しています。
           </p>
         </div>
@@ -60,37 +60,37 @@ export default function TestimonialsSection() {
           {cases.map((item, idx) => (
             <div
               key={idx}
-              className="bg-white rounded-2xl p-7 shadow-xs border border-slate-200/80 flex flex-col justify-between hover:shadow-md hover:border-sky-200 transition-all"
+              className="bg-white rounded-3xl p-8 sm:p-9 shadow-sm border border-slate-200/90 flex flex-col justify-between hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
             >
               <div className="space-y-4">
-                {/* 業界タグ ＆ 成果バッジ（rounded-md で程よい角丸に） */}
+                {/* 業界タグ ＆ 成果バッジ */}
                 <div className="flex items-center justify-between text-xs gap-2">
-                  <span className="bg-slate-100 text-slate-600 px-2.5 py-1.5 rounded-md font-medium">
+                  <span className="bg-slate-100 text-slate-600 px-3 py-1.5 rounded-md font-semibold">
                     {item.industry}
                   </span>
-                  <span className="bg-emerald-50 text-emerald-800 border border-emerald-200 font-bold px-3 py-1.5 rounded-md">
+                  <span className="bg-emerald-50 text-emerald-800 border border-emerald-200 font-bold px-3.5 py-1.5 rounded-md shadow-sm">
                     {item.highlight}
                   </span>
                 </div>
 
                 {/* 課題 vs 成果 */}
-                <div className="space-y-2.5 pt-2 text-xs sm:text-sm">
+                <div className="space-y-3 pt-2 text-xs sm:text-sm">
                   {/* 課題（赤系） */}
-                  <div className="p-3 rounded-lg bg-rose-50/70 border border-rose-100 text-slate-800">
+                  <div className="p-3.5 rounded-xl bg-rose-50/80 border border-rose-100/80 text-slate-800">
                     <span className="font-bold text-rose-600 mr-1.5 inline-flex items-center gap-1.5 shrink-0">
                       <AlertCircle className="w-4 h-4 text-rose-500 shrink-0" />
                       課題:
                     </span>
-                    <span className="font-medium text-slate-700">{item.problem}</span>
+                    <span className="font-medium text-slate-700 leading-relaxed">{item.problem}</span>
                   </div>
 
                   {/* 成果（スカイブルー系） */}
-                  <div className="p-3 rounded-lg bg-sky-50/70 border border-sky-100 text-slate-900">
+                  <div className="p-3.5 rounded-xl bg-sky-50/80 border border-sky-100/80 text-slate-900">
                     <span className="font-bold text-sky-700 mr-1.5 inline-flex items-center gap-1.5 shrink-0">
                       <CheckCircle2 className="w-4 h-4 text-sky-600 shrink-0" />
                       成果:
                     </span>
-                    <span className="font-bold text-slate-900">{item.result}</span>
+                    <span className="font-bold text-slate-900 leading-relaxed">{item.result}</span>
                   </div>
                 </div>
 
@@ -102,7 +102,7 @@ export default function TestimonialsSection() {
 
               {/* 企業・担当者情報 */}
               <div className="mt-6 pt-5 border-t border-slate-100 flex items-center space-x-3.5">
-                <div className={`w-10 h-10 rounded-full ${item.iconBg} flex items-center justify-center shrink-0`}>
+                <div className={`w-10 h-10 rounded-full ${item.iconBg} flex items-center justify-center shrink-0 shadow-sm`}>
                   <User className="w-5 h-5" />
                 </div>
                 <div>
@@ -117,8 +117,8 @@ export default function TestimonialsSection() {
       </div>
 
       {/* 背景装飾 */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-sky-100 rounded-full blur-[100px] opacity-40"></div>
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-sky-100 rounded-full blur-[100px] opacity-40"></div>
+      <div className="absolute top-0 right-0 w-96 h-96 bg-sky-100/60 rounded-full blur-[100px] pointer-events-none"></div>
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-sky-100/60 rounded-full blur-[100px] pointer-events-none"></div>
     </section>
   );
 }

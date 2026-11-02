@@ -57,7 +57,7 @@ export default function ContactSection() {
   };
 
   return (
-    <section className="py-20 bg-slate-50 border-t border-slate-200" id="contact">
+    <section className="py-20 bg-sky-50/70 border-t border-sky-100" id="contact">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <span className="text-sky-600 font-semibold tracking-wider uppercase text-sm">

@@ -10,7 +10,7 @@ export default function FeaturesSection() {
       subText: 'エクセルやチャットツールを行き来する必要はもうありません。',
       image: '/images/Dashboard01.jpg',
       description:
-        '営業、サポート、マーケティングなど、社内に点在していた顧客とのやり取りやステータスをLinkFlowに集約。誰が・いつ・どんな対応をしたかチーム全員ですぐに把握でき、情報の探し回るムダをゼロにします。',
+        '営業、サポート、マーケティングなど、社内に点在していた顧客とのやり取りやステータスをLinkFlowに集約。誰が・いつ・どんな対応をしたかチーム全員ですぐに把握でき、情報を探し回るムダをゼロにします。',
       checkpoints: [
         'メール・チャットの自動同期',
         '商談履歴のタイムライン表示',
@@ -40,7 +40,7 @@ export default function FeaturesSection() {
       subText: '見やすいグラフと自動レポートで、的確な意思決定を加速。',
       image: '/images/Dashboard03.jpg',
       description:
-        '日々の活動データや進捗状況を自動で集計し、視認性なダッシュボードに表示。会議資料やレポート作成に膨大な時間を費やす必要はありません。数値の現状がひと目で分かります。',
+        '日々の活動データや進捗状況を自動で集計し、視認性の高いダッシュボードに表示。会議資料やレポート作成に膨大な時間を費やす必要はありません。数値の現状がひと目で分かります。',
       checkpoints: [
         '売上・案件進捗の自動グラフ化',
         'ワンクリックでレポート出力',
@@ -51,18 +51,18 @@ export default function FeaturesSection() {
   ];
 
   return (
-    <section className="py-24 bg-slate-50/60 border-b border-slate-200/60 relative overflow-hidden">
+    <section className="py-24 sm:py-28 bg-white border-b border-slate-200/80 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* セクションヘッダー */}
         <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
-          <span className="text-sky-600 font-bold text-sm tracking-wider uppercase">
+          <span className="text-sky-600 font-extrabold text-xs sm:text-sm tracking-widest uppercase">
             FEATURES
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mt-2 mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 mt-3 mb-5 tracking-tight leading-tight">
             LinkFlowの3つの特徴
           </h2>
-          <p className="text-slate-600 mt-4 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg text-slate-600 font-medium leading-relaxed max-w-2xl mx-auto">
             日々の業務をスムーズにし、チームのパフォーマンスを最大化する機能
           </p>
         </div>
@@ -72,7 +72,7 @@ export default function FeaturesSection() {
           {features.map((item, index) => (
             <div
               key={index}
-              className="bg-white rounded-3xl p-8 sm:p-9 border border-slate-200/80 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
+              className="bg-white rounded-3xl p-8 sm:p-9 border border-slate-200/90 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
             >
               <div>
                 {/* 番号バッジ */}
@@ -113,8 +113,8 @@ export default function FeaturesSection() {
               <div className="pt-6 border-t border-slate-100">
                 <ul className="space-y-3.5">
                   {item.checkpoints.map((cp, cpIdx) => (
-                    <li key={cpIdx} className="flex items-center text-sm sm:text-base font-bold text-slate-800">
-                      <span className="flex-shrink-0 w-5 h-5 rounded-full bg-sky-100 text-sky-600 flex items-center justify-center font-black text-xs mr-3">
+                    <li key={cpIdx} className="flex items-center text-sm font-bold text-slate-800">
+                      <span className="flex-shrink-0 w-5 h-5 rounded-full bg-sky-100 text-sky-600 flex items-center justify-center font-black text-xs mr-3 shadow-sm">
                         ✓
                       </span>
                       <span>{cp}</span>

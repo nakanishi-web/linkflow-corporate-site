@@ -39,7 +39,7 @@ export default function StepsSection() {
   ];
 
   return (
-    <section className="py-24 bg-white text-slate-900 relative overflow-hidden">
+    <section className="py-24 bg-slate-50 text-slate-900 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* セクションヘッダー */}
@@ -60,7 +60,7 @@ export default function StepsSection() {
           {steps.map((step, index) => (
             <div
               key={index}
-              className="bg-slate-50/80 rounded-2xl p-6 sm:p-7 border border-slate-200/80 flex flex-col justify-between hover:shadow-md hover:border-sky-200 transition-all group"
+              className="bg-white rounded-2xl p-6 sm:p-7 border border-slate-200/80 flex flex-col justify-between hover:shadow-md hover:border-sky-200 transition-all group"
             >
               <div>
                 {/* ステップ番号 ＆ アイコン */}
