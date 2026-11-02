@@ -44,7 +44,7 @@ export default function PricingSection() {
               <h3 className="text-lg font-bold text-slate-800">スターター</h3>
               <p className="text-slate-500 text-sm mt-1">少人数で基本機能を試したいチームに</p>
               <div className="mt-6 mb-6">
-                <span className="text-4xl font-extrabold">¥1,980</span>
+                <span className="text-4xl font-extrabold text-slate-900">¥1,980</span>
                 <span className="text-slate-500 text-sm ml-2">/ 月・1ID（税抜）</span>
               </div>
               <ul className="space-y-3 text-sm text-slate-600 border-t border-slate-100 pt-6">
@@ -64,30 +64,31 @@ export default function PricingSection() {
             </div>
           </div>
 
-          {/* プラン2: スタンダード（一番人気・ハイライト） */}
-          <div className="bg-slate-900 text-white rounded-2xl p-8 shadow-xl border-2 border-sky-500 flex flex-col justify-between relative">
-            <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-sky-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-              一番人気
+          {/* プラン2: スタンダード（金額ネイビー ＆ 強力なメリハリ） */}
+          <div className="bg-white rounded-2xl p-8 shadow-2xl shadow-sky-500/15 border-2 border-sky-500 flex flex-col justify-between relative lg:-translate-y-4 z-10">
+            {/* 一番人気バッジ */}
+            <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-sky-600 text-white text-xs font-extrabold px-4 py-1.5 rounded-full uppercase tracking-wider shadow-md">
+              ★ 一番人気プラン
             </div>
             <div>
-              <h3 className="text-lg font-bold">スタンダード</h3>
-              <p className="text-slate-400 text-sm mt-1">リアルタイム共有と業務効率化を本格化</p>
+              <h3 className="text-xl font-bold text-slate-900">スタンダード</h3>
+              <p className="text-slate-500 text-sm mt-1">リアルタイム共有と業務効率化を本格化</p>
               <div className="mt-6 mb-6">
-                <span className="text-4xl font-extrabold">¥3,980</span>
-                <span className="text-slate-400 text-sm ml-2">/ 月・1ID（税抜）</span>
+                <span className="text-4xl font-black text-slate-900">¥3,980</span>
+                <span className="text-slate-500 text-sm ml-2">/ 月・1ID（税抜）</span>
               </div>
-              <ul className="space-y-3 text-sm text-slate-300 border-t border-slate-800 pt-6">
-                <li className="flex items-center text-sky-400">✓ スターターの全機能</li>
-                <li className="flex items-center text-sky-400">✓ ダッシュボード・売上グラフ分析</li>
-                <li className="flex items-center">✓ リアルタイム活動ログ</li>
-                <li className="flex items-center">✓ 優先チャットサポート</li>
+              <ul className="space-y-3 text-sm text-slate-700 border-t border-sky-100 pt-6">
+                <li className="flex items-center font-bold text-sky-700">✓ スターターの全機能</li>
+                <li className="flex items-center font-bold text-sky-700">✓ ダッシュボード・売上グラフ分析</li>
+                <li className="flex items-center font-medium">✓ リアルタイム活動ログ</li>
+                <li className="flex items-center font-medium">✓ 優先チャットサポート</li>
               </ul>
             </div>
             <div className="mt-8">
               <a
                 href="?plan=standard#contact"
                 onClick={(event) => handlePlanSelect(event, 'standard')}
-                className="block w-full text-center py-3 px-4 rounded-xl bg-sky-500 text-white font-bold hover:bg-sky-600 transition-colors shadow-lg shadow-sky-500/30"
+                className="block w-full text-center py-3.5 px-4 rounded-xl bg-sky-600 text-white font-bold hover:bg-sky-700 transition-all shadow-lg shadow-sky-600/30 text-base"
               >
                 無料で試してみる
               </a>
@@ -100,7 +101,7 @@ export default function PricingSection() {
               <h3 className="text-lg font-bold text-slate-800">プロフェッショナル</h3>
               <p className="text-slate-500 text-sm mt-1">組織全体の管理とセキュリティを強化</p>
               <div className="mt-6 mb-6">
-                <span className="text-4xl font-extrabold">¥7,980</span>
+                <span className="text-4xl font-extrabold text-slate-900">¥7,980</span>
                 <span className="text-slate-500 text-sm ml-2">/ 月・1ID（税抜）</span>
               </div>
               <ul className="space-y-3 text-sm text-slate-600 border-t border-slate-100 pt-6">
