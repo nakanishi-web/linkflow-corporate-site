@@ -1,11 +1,10 @@
 import React from 'react';
 
-// 上段（3社）
-const TOP_LOGOS = [
+// 企業数を全10社に拡充
+const LOGOS = [
   {
     name: 'Tech Industry Inc.',
-    color: 'text-indigo-600 hover:text-indigo-700',
-    iconColor: 'text-indigo-600',
+    color: 'text-indigo-600',
     fontStyle: 'font-black text-base sm:text-lg tracking-tight',
     icon: (
       <svg className="w-6 h-6 sm:w-7 sm:h-7 mr-2 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
@@ -15,8 +14,7 @@ const TOP_LOGOS = [
   },
   {
     name: 'NEXT SOLUTIONS',
-    color: 'text-rose-600 hover:text-rose-700',
-    iconColor: 'text-rose-600',
+    color: 'text-rose-600',
     fontStyle: 'font-extrabold text-sm sm:text-base tracking-wider',
     icon: (
       <svg className="w-6 h-6 sm:w-7 sm:h-7 mr-2 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
@@ -26,8 +24,7 @@ const TOP_LOGOS = [
   },
   {
     name: 'Global Consulting',
-    color: 'text-amber-600 hover:text-amber-700',
-    iconColor: 'text-amber-600',
+    color: 'text-amber-600',
     fontStyle: 'font-bold text-base sm:text-lg tracking-normal',
     icon: (
       <svg className="w-6 h-6 sm:w-7 sm:h-7 mr-2 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
@@ -35,14 +32,9 @@ const TOP_LOGOS = [
       </svg>
     ),
   },
-];
-
-// 下段（2社）
-const BOTTOM_LOGOS = [
   {
     name: 'SOKEN SYSTEMS',
-    color: 'text-emerald-600 hover:text-emerald-700',
-    iconColor: 'text-emerald-600',
+    color: 'text-emerald-600',
     fontStyle: 'font-extrabold text-sm sm:text-base tracking-tight',
     icon: (
       <svg className="w-6 h-6 sm:w-7 sm:h-7 mr-2 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
@@ -52,12 +44,61 @@ const BOTTOM_LOGOS = [
   },
   {
     name: 'ARK Technology',
-    color: 'text-cyan-600 hover:text-cyan-700',
-    iconColor: 'text-cyan-600',
+    color: 'text-cyan-600',
     fontStyle: 'font-bold text-base sm:text-lg tracking-tight',
     icon: (
       <svg className="w-6 h-6 sm:w-7 sm:h-7 mr-2 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
         <path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3z" />
+      </svg>
+    ),
+  },
+  {
+    name: 'Future Innovation',
+    color: 'text-violet-600',
+    fontStyle: 'font-extrabold text-base sm:text-lg tracking-tight',
+    icon: (
+      <svg className="w-6 h-6 sm:w-7 sm:h-7 mr-2 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+      </svg>
+    ),
+  },
+  {
+    name: 'CloudBase Japan',
+    color: 'text-blue-600',
+    fontStyle: 'font-bold text-base sm:text-lg tracking-tight',
+    icon: (
+      <svg className="w-6 h-6 sm:w-7 sm:h-7 mr-2 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z" />
+      </svg>
+    ),
+  },
+  {
+    name: 'Vanguard Group',
+    color: 'text-teal-600',
+    fontStyle: 'font-extrabold text-sm sm:text-base tracking-wider',
+    icon: (
+      <svg className="w-6 h-6 sm:w-7 sm:h-7 mr-2 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 2L1 21h22L12 2zm0 3.99L19.53 19H4.47L12 5.99z" />
+      </svg>
+    ),
+  },
+  {
+    name: 'Nexus Dynamics',
+    color: 'text-orange-600',
+    fontStyle: 'font-bold text-base sm:text-lg tracking-tight',
+    icon: (
+      <svg className="w-6 h-6 sm:w-7 sm:h-7 mr-2 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z" />
+      </svg>
+    ),
+  },
+  {
+    name: 'Apex Solutions',
+    color: 'text-purple-600',
+    fontStyle: 'font-extrabold text-base sm:text-lg tracking-tight',
+    icon: (
+      <svg className="w-6 h-6 sm:w-7 sm:h-7 mr-2 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 3L2 12h3v8h14v-8h3L12 3z" />
       </svg>
     ),
   },
@@ -71,8 +112,10 @@ const STATS = [
 ];
 
 export default function LogoSection() {
+  const doubleLogos = [...LOGOS, ...LOGOS];
+
   return (
-    <section className="py-12 sm:py-16 bg-slate-50/80 border-y border-slate-200/60">
+    <section className="py-12 sm:py-16 bg-slate-50 border-y border-slate-200 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* 見出し */}
@@ -80,29 +123,15 @@ export default function LogoSection() {
           ＼ 多くの成長企業・チームにご導入いただいています ／
         </p>
 
-        {/* 企業ロゴ一覧（上段3社 / 下段2社） */}
-        <div className="flex flex-col items-center gap-6 sm:gap-8 mb-12 sm:mb-14">
-          {/* 上段：3社 */}
-          <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-12 lg:gap-16">
-            {TOP_LOGOS.map((logo, index) => (
+        {/* 無限オートスクロール（全10社が滑らかにループ） */}
+        <div className="relative flex overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)] mb-12 sm:mb-14">
+          <div className="flex shrink-0 gap-12 sm:gap-16 items-center animate-infinite-scroll py-2">
+            {doubleLogos.map((logo, index) => (
               <div
                 key={index}
-                className={`flex items-center transition-transform hover:scale-105 duration-200 cursor-default ${logo.color} ${logo.fontStyle}`}
+                className={`flex items-center shrink-0 transition-transform hover:scale-105 duration-200 cursor-default ${logo.color} ${logo.fontStyle}`}
               >
-                <span className={logo.iconColor}>{logo.icon}</span>
-                <span className="whitespace-nowrap">{logo.name}</span>
-              </div>
-            ))}
-          </div>
-
-          {/* 下段：2社 */}
-          <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-12 lg:gap-16">
-            {BOTTOM_LOGOS.map((logo, index) => (
-              <div
-                key={index}
-                className={`flex items-center transition-transform hover:scale-105 duration-200 cursor-default ${logo.color} ${logo.fontStyle}`}
-              >
-                <span className={logo.iconColor}>{logo.icon}</span>
+                <span>{logo.icon}</span>
                 <span className="whitespace-nowrap">{logo.name}</span>
               </div>
             ))}
@@ -110,7 +139,7 @@ export default function LogoSection() {
         </div>
 
         {/* 数値実績 */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 pt-8 border-t border-slate-200/80 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 pt-8 border-t border-slate-200 max-w-4xl mx-auto">
           {STATS.map((stat, index) => (
             <div key={index} className="text-center">
               <div className="flex items-baseline justify-center text-sky-700 font-extrabold">
